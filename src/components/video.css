@@ -1,0 +1,229 @@
+.video-page {
+  overflow-y: auto;
+}
+
+.video-container {
+  width: min(900px, 94vw);
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  padding: 30px 0;
+}
+
+.video-title {
+  text-align: center;
+  animation: videoTitleIn 0.8s ease;
+}
+
+.video-title small {
+  display: block;
+  margin-bottom: 8px;
+
+  font-size: 0.9rem;
+  font-weight: 600;
+
+  color: #aa4166;
+  letter-spacing: 1px;
+}
+
+.video-title h2 {
+  margin: 0;
+
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  font-weight: 800;
+
+  background: linear-gradient(
+    135deg,
+    #e83e8c,
+    #aa4166,
+    #64384a
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+/* =========================================
+   VIDEO
+   ========================================= */
+
+.video-wrapper {
+  width: min(820px, 92vw);
+
+  padding: 10px;
+
+  border-radius: 24px;
+
+  background: rgba(255, 255, 255, 0.7);
+
+  box-shadow:
+    0 20px 50px rgba(139, 57, 87, 0.18);
+
+  backdrop-filter: blur(10px);
+
+  animation: videoIn 0.9s ease;
+}
+
+.birthday-video {
+  display: block;
+
+  width: 100%;
+  max-height: 65vh;
+
+  border-radius: 18px;
+
+  object-fit: contain;
+
+  background: #000;
+}
+
+
+/* =========================================
+   ACTION AREA
+   ========================================= */
+
+.video-actions {
+  min-height: 55px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+}
+
+.video-hint {
+  margin: 0;
+
+  font-size: 1rem;
+  font-weight: 600;
+
+  color: #805066;
+
+  animation: pulseHint 1.5s ease-in-out infinite alternate;
+}
+
+.video-next-btn {
+  border: none;
+  outline: none;
+
+  padding: 13px 26px;
+
+  border-radius: 999px;
+
+  font-size: 1rem;
+  font-weight: 700;
+
+  color: white;
+
+  background: linear-gradient(
+    135deg,
+    #e83e8c,
+    #aa4166
+  );
+
+  cursor: pointer;
+
+  box-shadow:
+    0 10px 25px rgba(170, 65, 102, 0.3);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+
+  animation: buttonIn 0.6s ease;
+}
+
+.video-next-btn:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 14px 30px rgba(170, 65, 102, 0.4);
+}
+
+.video-next-btn:active {
+  transform: translateY(0);
+}
+
+
+/* =========================================
+   ANIMATIONS
+   ========================================= */
+
+@keyframes videoTitleIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes videoIn {
+  from {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulseHint {
+  from {
+    opacity: 0.5;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes buttonIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px) scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 600px) {
+  .video-container {
+    gap: 18px;
+    padding: 20px 0;
+  }
+
+  .video-wrapper {
+    width: 94vw;
+    padding: 6px;
+    border-radius: 18px;
+  }
+
+  .birthday-video {
+    max-height: 60vh;
+    border-radius: 14px;
+  }
+
+  .video-next-btn {
+    width: 90%;
+    max-width: 320px;
+  }
+}

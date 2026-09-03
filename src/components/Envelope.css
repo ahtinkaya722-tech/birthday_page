@@ -1,0 +1,277 @@
+:root {
+  --rose:  #e87ea3;
+  --rose-deep: #e87ea3;
+  --pink: #f5a9c0;
+  --baby: #ffd9e5;
+  --blush: #fff4f7;
+  --paper: #fffdf9;
+  --ink: #593343;
+  --muted: #936f7d;
+  --white: #fff;
+  --shadow: 0 24px 70px rgba(158, 69, 100, .18);
+  --soft-shadow: 0 12px 35px rgba(158, 69, 100, .13);
+  --radius: 28px;
+  --ease: cubic-bezier(.2, .8, .2, 1);
+}
+
+/* Page Outer Structure */
+.experience-page {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: max(22px, env(safe-area-inset-top)) 18px max(22px, env(safe-area-inset-bottom));
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(7%);
+  transition: opacity .65s var(--ease), transform .65s var(--ease), visibility .65s;
+  overflow: hidden;
+}
+
+.experience-page.active {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+
+.envelope-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Header Text Design Upgrade */
+.envelope-header {
+  text-align: center;
+  transition: opacity 0.4s var(--ease), transform 0.4s var(--ease);
+}
+
+.envelope-header.fade-out {
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+}
+
+/* 1. Wish Subtitle Badge Design */
+.wish-subtitle {
+  display: inline-block;
+  margin: 0;
+  padding: 4px 14px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--muted);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(6px);
+  border-radius: 20px;
+  border: 1px solid rgba(232, 126, 163, 0.25);
+  box-shadow: 0 4px 12px rgba(158, 69, 100, 0.05);
+}
+
+/* 2. Wish Title Gradient & Glow Effect */
+.wish-title {
+  margin: 8px 0 0 0;
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+  background:  linear-gradient(135deg, #e87ea3 0%, #f590b3 60%, #f3eeee 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 2px 8px rgba(232, 126, 163, 0.3));
+}
+
+/* Envelope Stage Layout & Drop Animation */
+.envelope-stage {
+  position: relative;
+  width: 260px;
+  height: 210px;
+  display: grid;
+  place-items: center;
+  filter: drop-shadow(0 22px 20px rgba(140, 58, 87, .2));
+  animation: envelopeDrop 1.5s var(--ease) both;
+}
+
+@keyframes envelopeDrop {
+  0% {
+    opacity: 0;
+    transform: translateY(-65vh) rotate(-6deg);
+  }
+  70% {
+    opacity: 1;
+    transform: translateY(14px) rotate(2deg);
+  }
+  85% {
+    transform: translateY(-7px) rotate(-1deg);
+  }
+  100% {
+    transform: none;
+  }
+}
+
+/* Envelope Base Structure */
+.envelope {
+  position: relative;
+  width: 240px;
+  height: 165px;
+}
+
+/* Envelope Body Styling */
+.envelope-body {
+  position: absolute;
+  inset: 0;
+  border-radius: 8px 8px 18px 18px;
+  background: linear-gradient(145deg, #fff, #ffdce7);
+  border: 2px solid rgba(221, 102, 141, 0.22);
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* Letter inside envelope */
+.letter {
+  position: absolute;
+  width: 88%;
+  height: 88%;
+  left: 6%;
+  top: 6%;
+  background: var(--paper);
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  box-shadow: var(--soft-shadow);
+  transform-origin: center center;
+}
+
+/* 3. Letter Inside Content & Typography Design */
+.letter-content {
+  text-align: center;
+  color: var(--ink);
+  padding: 1rem;
+  border: 1px dashed rgb(255, 255, 255);
+  border-radius: 8px;
+  margin: 6px;
+  width: calc(100% - 12px);
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.letter-content h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+  background: linear-gradient(135deg, #e87ea3, #f1f1f1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.letter-content p {
+  margin: 6px 0 0 0;
+  font-size: 0.82rem;
+  line-height: 1.4;
+  color: var(--ink);
+  font-weight: 500;
+  opacity: 0.85;
+}
+
+/* Front Pocket */
+.envelope-front {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 120px solid rgba(255, 220, 231, 1);
+  border-right: 120px solid rgba(255, 220, 231, 1);
+  border-top: 85px solid transparent;
+  border-bottom: 80px solid var(--rose);
+  border-radius: 0 0 18px 18px;
+  z-index: 3;
+}
+
+/* Flap */
+.envelope-flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 120px solid transparent;
+  border-right: 120px solid transparent;
+  border-top: 90px solid var(--rose-deep);
+  transform-origin: top;
+  transition: transform 0.5s ease-in-out, z-index 0.2s 0.2s;
+  z-index: 4;
+}
+
+/* Wax Seal Button */
+.wax-seal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -35%);
+  width: 44px;
+  height: 44px;
+  background: linear-gradient(135deg, var(--rose) 0%, var(--rose-deep) 100%);
+  border: 2px solid var(--baby);
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  z-index: 5;
+  box-shadow: var(--soft-shadow);
+  transition: transform 0.2s ease, opacity 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wax-seal:hover {
+  transform: translate(-50%, -35%) scale(1.1);
+}
+
+/* ANIMATIONS WHEN OPENED */
+.envelope-stage.open .envelope-flap {
+  transform: rotateX(180deg);
+  z-index: 1;
+}
+
+.envelope-stage.open .wax-seal {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.envelope-stage.open .letter {
+  animation: cardSequence 4.5s ease-in-out forwards;
+}
+
+@keyframes cardSequence {
+  0% {
+    transform: translateY(0) scale(1);
+    z-index: 2;
+    opacity: 1;
+  }
+  25% {
+    transform: translateY(-90px) scale(1);
+    z-index: 2;
+    opacity: 1;
+  }
+  35% {
+    transform: translateY(-60px) scale(1.35);
+    z-index: 10;
+    box-shadow: 0 18px 35px rgba(89, 51, 67, 0.25);
+    opacity: 1;
+  }
+  85% {
+    transform: translateY(-60px) scale(1.35);
+    z-index: 10;
+    box-shadow: 0 18px 35px rgb(255, 255, 255);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-60px) scale(1.4);
+    z-index: 10;
+    opacity: 0;
+  }
+}

@@ -1,0 +1,82 @@
+.birthday {
+  min-height: 100vh;
+}
+
+.birthday-screen {
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+}
+
+.birthday-small-text {
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.birthday-screen h1 {
+  font-size: clamp(3rem, 8vw, 7rem);
+  margin: 20px 0;
+}
+
+.birthday-from {
+  color: var(--muted);
+}
+
+.message-screen {
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: 40px 20px;
+}
+
+.message-image-container {
+  width: min(600px, 90vw);
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: var(--radius);
+}
+
+.message-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.message-content {
+  max-width: 600px;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.message-content p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+}
+
+.message-controls {
+  display: flex;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.message-controls button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.message-controls button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}

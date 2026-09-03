@@ -1,0 +1,89 @@
+:root {
+  --rose: #df668e;
+  --rose-deep: #aa4166;
+  --pink: #f5a9c0;
+  --baby: #ffd9e5;
+  --blush: #fff4f7;
+  --paper: #fffdf9;
+  --ink: #593343;
+  --muted: #936f7d;
+  --white: #fff;
+
+  --shadow: 0 24px 70px rgba(158, 69, 100, 0.18);
+  --soft-shadow: 0 12px 35px rgba(158, 69, 100, 0.13);
+
+  --radius: 28px;
+  --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--blush);
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+
+  color: var(--ink);
+
+  font-family:
+    "Trebuchet MS",
+    "Noto Sans Myanmar",
+    sans-serif;
+
+  background:
+    radial-gradient(
+      circle at 10% 5%,
+      rgba(255, 255, 255, 0.96) 0 10%,
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 88% 20%,
+      rgba(245, 169, 192, 0.35),
+      transparent 28%
+    ),
+    linear-gradient(
+      150deg,
+      #fffafd,
+      #fff0f5 52%,
+      #fff8fb
+    );
+
+  overflow-x: hidden;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button {
+  border: 0;
+  cursor: pointer;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-width: 320px;
+    min-height: 100vh;
+    color: var(--ink);
+    font-family: "Trebuchet MS", "Noto Sans Myanmar", sans-serif;
+    background: radial-gradient(circle at 10% 5%, rgba(255, 255, 255, .96) 0 10%, transparent 32%), radial-gradient(circle at 88% 20%, rgba(245, 169, 192, .35), transparent 28%), linear-gradient(150deg, #fffafd, #fff0f5 52%, #fff8fb);
+    overflow-x: hidden;
+}
+
+.birthday-experience {
+  width: 100%;
+  min-height: 100vh;
+}

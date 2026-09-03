@@ -1,0 +1,446 @@
+/* =========================
+   GALLERY PAGE
+========================= */
+
+#pageGallery {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  box-sizing: border-box;
+  background: linear-gradient(
+    135deg,
+    #fff0f5,
+    #ffe4ec,
+    #fff7f9
+  );
+  overflow: hidden;
+}
+
+
+/* =========================
+   GALLERY SHELL
+========================= */
+
+.gallery-shell {
+  width: min(900px, 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+/* =========================
+   TITLE
+========================= */
+
+.gallery-title {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.gallery-title small {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #c77d92;
+}
+
+.gallery-title h2 {
+  margin: 0;
+  font-size: clamp(28px, 5vw, 46px);
+  color: #71384b;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+
+/* =========================
+   PAPER STACK
+========================= */
+
+.paper-stack {
+  position: relative;
+  width: min(650px, 100%);
+  min-height: 500px;
+}
+
+
+/* =========================
+   MESSAGE PAPER
+========================= */
+
+.message-paper {
+  position: relative;
+  width: 100%;
+  min-height: 500px;
+  padding: 35px;
+  box-sizing: border-box;
+
+  background: #fffdf8;
+
+  border-radius: 4px;
+
+  box-shadow:
+    0 20px 45px rgba(80, 30, 45, 0.15),
+    0 4px 10px rgba(80, 30, 45, 0.08);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transform: rotate(-1deg);
+
+  transition:
+    transform 0.4s ease,
+    opacity 0.4s ease;
+}
+
+
+/* Paper behind */
+
+.message-paper::before,
+.message-paper::after {
+  content: "";
+  position: absolute;
+
+  inset: 0;
+
+  background: #fffaf5;
+
+  border-radius: 4px;
+
+  z-index: -1;
+}
+
+.message-paper::before {
+  transform: rotate(2deg);
+  box-shadow: 0 8px 20px rgba(80, 30, 45, 0.08);
+}
+
+.message-paper::after {
+  transform: rotate(-3deg);
+  z-index: -2;
+}
+
+
+/* =========================
+   PAPER CONTENT
+========================= */
+
+#paperContent {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+/* =========================
+   IMAGE
+========================= */
+
+.gallery-image {
+  display: block;
+
+  width: min(430px, 90%);
+
+  max-height: 330px;
+
+  object-fit: cover;
+
+  border-radius: 8px;
+
+  box-shadow:
+    0 10px 25px rgba(70, 30, 45, 0.18);
+
+  margin-bottom: 25px;
+
+  border: 5px solid white;
+
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+.gallery-image:hover {
+  transform: scale(1.02);
+
+  box-shadow:
+    0 14px 30px rgba(70, 30, 45, 0.22);
+}
+
+
+/* =========================
+   MESSAGE
+========================= */
+
+.gallery-message {
+  width: min(520px, 95%);
+
+  margin: 0;
+
+  text-align: center;
+
+  color: #684451;
+
+  font-size: 18px;
+
+  line-height: 1.9;
+
+  white-space: pre-line;
+
+  font-family:
+    "Noto Sans Myanmar",
+    "Myanmar Text",
+    sans-serif;
+}
+
+
+/* =========================
+   HEART DECORATION
+========================= */
+
+.paper-heart {
+  position: absolute;
+
+  top: 18px;
+  right: 25px;
+
+  width: 20px;
+  height: 20px;
+
+  background: #e89aaa;
+
+  transform: rotate(-45deg);
+
+  opacity: 0.8;
+}
+
+.paper-heart::before,
+.paper-heart::after {
+  content: "";
+
+  position: absolute;
+
+  width: 20px;
+  height: 20px;
+
+  background: #e89aaa;
+
+  border-radius: 50%;
+}
+
+.paper-heart::before {
+  top: -10px;
+  left: 0;
+}
+
+.paper-heart::after {
+  top: 0;
+  left: 10px;
+}
+
+
+/* =========================
+   GALLERY NAVIGATION
+========================= */
+
+.gallery-nav {
+  width: min(650px, 100%);
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 25px;
+
+  margin-top: 30px;
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+.nav-btn {
+  border: none;
+
+  padding: 12px 25px;
+
+  border-radius: 30px;
+
+  background: #d97891;
+
+  color: white;
+
+  font-size: 15px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.nav-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+
+  background: #c96580;
+
+  box-shadow:
+    0 8px 18px rgba(180, 80, 105, 0.25);
+}
+
+.nav-btn:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.nav-btn:disabled {
+  opacity: 0.4;
+
+  cursor: not-allowed;
+}
+
+
+/* =========================
+   PAGE COUNTER
+========================= */
+
+.message-dots {
+  min-width: 60px;
+
+  text-align: center;
+
+  font-size: 15px;
+
+  font-weight: 600;
+
+  color: #8c5365;
+}
+
+
+/* =========================
+   PAPER ANIMATION
+========================= */
+
+.paper-in {
+  animation: paperIn 0.6s ease;
+}
+
+@keyframes paperIn {
+  from {
+    opacity: 0;
+    transform:
+      translateY(30px)
+      rotate(-4deg)
+      scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform:
+      translateY(0)
+      rotate(-1deg)
+      scale(1);
+  }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+  #pageGallery {
+    padding: 25px 15px;
+  }
+
+  .gallery-title {
+    margin-bottom: 20px;
+  }
+
+  .gallery-title small {
+    font-size: 11px;
+    letter-spacing: 2px;
+  }
+
+  .gallery-title h2 {
+    font-size: 30px;
+  }
+
+  .paper-stack {
+    min-height: 430px;
+  }
+
+  .message-paper {
+    min-height: 430px;
+
+    padding: 25px 18px;
+
+    transform: rotate(-0.5deg);
+  }
+
+  .gallery-image {
+    width: 90%;
+
+    max-height: 250px;
+
+    margin-bottom: 20px;
+  }
+
+  .gallery-message {
+    font-size: 16px;
+
+    line-height: 1.8;
+  }
+
+  .gallery-nav {
+    gap: 12px;
+
+    margin-top: 20px;
+  }
+
+  .nav-btn {
+    padding: 10px 18px;
+
+    font-size: 14px;
+  }
+
+  .message-dots {
+    font-size: 14px;
+  }
+}
+
+
+/* =========================
+   SMALL PHONES
+========================= */
+
+@media (max-width: 380px) {
+
+  .message-paper {
+    padding: 20px 12px;
+  }
+
+  .gallery-image {
+    max-height: 210px;
+  }
+
+  .gallery-message {
+    font-size: 15px;
+  }
+
+  .nav-btn {
+    padding: 9px 14px;
+  }
+}
