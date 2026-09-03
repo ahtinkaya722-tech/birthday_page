@@ -8,7 +8,7 @@ import Video from "../Video";
 
 
 const BIRTHDAY_SONG_URL =
-  "/song/universfield-happy-birthday-cheer-242244.mp3";
+  "/src/song/universfield-happy-birthday-cheer-242244.mp3";
 
 function BirthdayExperience() {
   const [stage, setStage] = useState("envelope");

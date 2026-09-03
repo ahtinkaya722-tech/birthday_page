@@ -444,3 +444,100 @@
     padding: 9px 14px;
   }
 }
+/* =========================================
+   PAPER PAGE TRANSITION
+========================================= */
+
+.paper-stack {
+  position: relative;
+  perspective: 1200px;
+}
+
+/* Base paper */
+.message-paper {
+  transform-origin: center center;
+  backface-visibility: hidden;
+  will-change: transform, opacity;
+}
+
+/* New page coming in */
+.paper-in-next {
+  animation: paperInNext 0.45s ease-out forwards;
+}
+
+.paper-in-previous {
+  animation: paperInPrevious 0.45s ease-out forwards;
+}
+
+/* Old page going out */
+.paper-out-next {
+  animation: paperOutNext 0.35s ease-in forwards;
+}
+
+.paper-out-previous {
+  animation: paperOutPrevious 0.35s ease-in forwards;
+}
+
+
+/* NEXT
+   New paper comes from the right
+*/
+
+@keyframes paperInNext {
+  0% {
+    opacity: 0;
+    transform: translateX(70px) rotateY(-12deg) rotateZ(2deg);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0) rotateY(0) rotateZ(0);
+  }
+}
+
+
+/* PREVIOUS
+   New paper comes from the left
+*/
+
+@keyframes paperInPrevious {
+  0% {
+    opacity: 0;
+    transform: translateX(-70px) rotateY(12deg) rotateZ(-2deg);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0) rotateY(0) rotateZ(0);
+  }
+}
+
+
+/* Old paper leaves to the left */
+
+@keyframes paperOutNext {
+  0% {
+    opacity: 1;
+    transform: translateX(0) rotateY(0) rotateZ(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(-70px) rotateY(12deg) rotateZ(-2deg);
+  }
+}
+
+
+/* Old paper leaves to the right */
+
+@keyframes paperOutPrevious {
+  0% {
+    opacity: 1;
+    transform: translateX(0) rotateY(0) rotateZ(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(70px) rotateY(-12deg) rotateZ(2deg);
+  }
+}

@@ -33,7 +33,7 @@ function Video({ onComplete }) {
             onEnded={handleVideoEnd}
           >
             <source
-              src="/song/友達の誕生日.mp4"
+              src="/src/song/友達の誕生日.mp4"
               type="video/mp4"
             />
 

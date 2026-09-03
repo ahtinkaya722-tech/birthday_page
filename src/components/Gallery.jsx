@@ -4,18 +4,37 @@ import "./Gallery.css";
 
 function Gallery({ onComplete }) {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [direction, setDirection] = useState("next");
+  const [isAnimating, setIsAnimating] = useState(false);
 
   const currentMessage = birthdayData.messages[currentIndex];
 
+  const changePage = (newIndex, animationDirection) => {
+    if (isAnimating) return;
+
+    setDirection(animationDirection);
+    setIsAnimating(true);
+
+    // Wait for old paper to leave
+    setTimeout(() => {
+      setCurrentIndex(newIndex);
+
+      // Small delay so the new paper animation starts
+      setTimeout(() => {
+        setIsAnimating(false);
+      }, 50);
+    }, 350);
+  };
+
   const goPrevious = () => {
     if (currentIndex > 0) {
-      setCurrentIndex(currentIndex - 1);
+      changePage(currentIndex - 1, "previous");
     }
   };
 
   const goNext = () => {
     if (currentIndex < birthdayData.messages.length - 1) {
-      setCurrentIndex(currentIndex + 1);
+      changePage(currentIndex + 1, "next");
     } else {
       onComplete();
     }
@@ -28,9 +47,8 @@ function Gallery({ onComplete }) {
 
         {/* Title */}
         <div className="gallery-title">
-          <small>Letters from the heart</small>
-
-          <h2>Your Birthday Pages</h2>
+          <small>A little something from me</small>
+          <h2>Memories Made for You ❤️</h2>
         </div>
 
         {/* Paper */}
@@ -38,7 +56,11 @@ function Gallery({ onComplete }) {
 
           <article
             id="messagePaper"
-            className="message-paper paper-in"
+            className={`message-paper ${
+              isAnimating
+                ? `paper-out-${direction}`
+                : `paper-in-${direction}`
+            }`}
           >
 
             <i className="paper-heart"></i>
@@ -67,7 +89,7 @@ function Gallery({ onComplete }) {
           <button
             className="nav-btn"
             onClick={goPrevious}
-            disabled={currentIndex === 0}
+            disabled={currentIndex === 0 || isAnimating}
           >
             Previous
           </button>
@@ -79,6 +101,7 @@ function Gallery({ onComplete }) {
           <button
             className="nav-btn"
             onClick={goNext}
+            disabled={isAnimating}
           >
             {currentIndex === birthdayData.messages.length - 1
               ? "Finish"

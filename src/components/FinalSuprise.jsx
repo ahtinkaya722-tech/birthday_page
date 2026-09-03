@@ -32,7 +32,7 @@ function FinalSurprise({ onComplete }) {
 
             <div className="fs-letter-card-body">
               <h1 className="fs-letter-recipient">
-                Happy Birthday, {birthdayData.recipient}! 🎂
+                Happy Birthday, Phoo Pyae Thawdar! 🎂
               </h1>
 
               <div className="fs-letter-divider"></div>
@@ -44,7 +44,7 @@ function FinalSurprise({ onComplete }) {
               <div className="fs-letter-divider"></div>
 
               <p className="fs-letter-sender">
-                With love, <br />
+        
                 <strong>{birthdayData.sender}</strong>
               </p>
             </div>
