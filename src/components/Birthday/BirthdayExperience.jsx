@@ -5,11 +5,9 @@ import Cake from "../Cake";
 import Gallery from "../Gallery";
 import FinalSuprise from "../FinalSuprise";
 import Video from "../Video";
+import BIRTHDAY_SONG_URL from "../../song/universfield-happy-birthday-cheer-242244.mp3";
 
-
-const BIRTHDAY_SONG_URL =
-  "/src/song/universfield-happy-birthday-cheer-242244.mp3";
-
+  
 function BirthdayExperience() {
   const [stage, setStage] = useState("envelope");
 

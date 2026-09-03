@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import "./video.css";
+import birthdayData from "../component/js/birthdayData";
 
 function Video({ onComplete }) {
   const videoRef = useRef(null);
@@ -33,7 +34,7 @@ function Video({ onComplete }) {
             onEnded={handleVideoEnd}
           >
             <source
-              src="/src/song/友達の誕生日.mp4"
+              src={birthdayData.music}
               type="video/mp4"
             />
 
