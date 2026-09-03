@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import "./Video.css";
+import "./video.css";
 
 function Video({ onComplete }) {
   const videoRef = useRef(null);
